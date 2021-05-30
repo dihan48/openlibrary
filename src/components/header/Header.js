@@ -1,20 +1,26 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-    changeSearch,
     selectSearch,
+    selectfirstSearch,
+    changeSearch,
+    submitSearch
 } from '../../slices/searchSlice';
 import styles from './Header.module.css';
 
 export function Header() {
     const search = useSelector(selectSearch);
+    const firstSearch = useSelector(selectfirstSearch);
     const dispatch = useDispatch();
     return (
         <header className={styles.header}>
-            <div className={styles.container}>
+            <div className={`${styles.container} ${firstSearch ? styles.firstSearch : ''}`}>
                 <form
                     className={styles.form}
-                    onSubmit={(e) => e.preventDefault()}
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        dispatch(submitSearch(search));
+                    }}
                 >
                     <input
                         type="text"

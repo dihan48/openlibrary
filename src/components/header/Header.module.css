@@ -6,16 +6,24 @@
     height: 96px;
     background-color: #222222;
     position: fixed;
+    z-index: 2;
+    transition: height 0.5s;
+}
+.container.firstSearch{
+    height: 100vh;
+    /* height: -webkit-fill-available; */
 }
 .form{
     width: 60%;
     height: 100%;
     min-width: 250px;
     max-width: 1000px;
+    padding: 0 24px;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .input{

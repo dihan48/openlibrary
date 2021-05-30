@@ -1,15 +1,19 @@
 .container{
-    width: 60%;
-    min-width: 250px;
-    max-width: 1000px;
-    height: auto;
-    margin: 0 auto;
-    padding-top: 24px;
-    padding-bottom: 24px;
+  width: 60%;
+  min-width: fit-content;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  padding: 24px 0;
+  box-sizing: border-box;
 }
 
 .list{
 
+}
+
+.wrapper_loader{
+  height: 5em;
 }
 
 .loader,
