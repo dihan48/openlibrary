@@ -47,6 +47,14 @@
     box-sizing: border-box;
 }
 
+.line_text::after{
+    content: ', '
+}
+
+.line_text:last-child::after{
+    content: ''
+}
+
 .no_image{
     box-sizing: border-box;
     background-color: #7a431c;
@@ -81,4 +89,26 @@
     border: 1px solid #fff;
     margin: unset;
     max-width: unset;
+}
+
+@media (max-width: 768px){
+    .container{
+        margin: 24px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .info{
+        margin: 10px;
+    }
+    .title{
+        text-align: center;
+    }
+    
+    .author{
+        text-align: center;
+    }
 }

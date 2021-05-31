@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setModaleIndex } from '../../slices/searchSlice';
 import styles from './Card.module.css';
 
 export function CardBody(props) {
@@ -15,7 +17,17 @@ export function CardBody(props) {
                                     {props?.card?.title}
                                 </div>
                                 <div className={styles.author}>
-                                    {props?.card?.author_name || "Unknown author"}
+                                    {
+                                        props?.card?.author_name?.map((item, i) =>
+                                            <span className={styles.line_text} key={i}>
+                                                {item}
+                                            </span>
+                                        )
+                                        ||
+                                        <span className={styles.line_text}>
+                                            "Unknown author"
+                                        </span>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -26,7 +38,18 @@ export function CardBody(props) {
                     Title: {props?.card?.title}
                 </div>
                 <div className={styles.author}>
-                    Author: {props?.card?.author_name || "Unknown author"}
+                    Author:&nbsp;
+                    {
+                            props?.card?.author_name?.map((item, i) =>
+                                <span className={styles.line_text} key={i}>
+                                    {item}
+                                </span>
+                            )
+                            ||
+                            <span className={styles.line_text}>
+                                "Unknown author"
+                            </span>
+                        }
                 </div>
             </div>
         </>
@@ -34,8 +57,9 @@ export function CardBody(props) {
 }
 
 export function Card(props) {
+    const dispatch = useDispatch();
     return (
-        <div className={styles.container}>
+        <div className={styles.container} onClick={() => dispatch(setModaleIndex(props.index))}>
             <CardBody {...props} />
         </div>
     );

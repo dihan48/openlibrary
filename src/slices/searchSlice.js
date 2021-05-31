@@ -5,7 +5,8 @@ const initialState = {
   value: '',
   list: [],
   status: 'idle',
-  firstSearch: true
+  firstSearch: true,
+  modaleIndex: -1
 };
 
 export const fetchSearchAsync = createAsyncThunk(
@@ -33,6 +34,9 @@ export const searchSlice = createSlice({
         state.list = [];
       }
     },
+    setModaleIndex: (state, action) => {
+      state.modaleIndex = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -58,7 +62,7 @@ export const searchSlice = createSlice({
   },
 });
 
-export const { change, setStatus, fillList } = searchSlice.actions;
+export const { change, setStatus, fillList, setModaleIndex } = searchSlice.actions;
 
 export const selectList = (state) => state.search.list;
 
@@ -67,6 +71,8 @@ export const selectStatus = (state) => state.search.status;
 export const selectSearch = (state) => state.search.value;
 
 export const selectfirstSearch = (state) => state.search.firstSearch;
+
+export const selectModaleIndex = (state) => state.search.modaleIndex;
 
 let timeoutChangeSearch;
 
