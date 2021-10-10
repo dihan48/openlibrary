@@ -17,7 +17,7 @@ export function ModaleCard(props) {
                 <div className={styles.cover}>
                     {
                         card?.cover_i && card.cover_i !== -1
-                            ? <img src={`http://covers.openlibrary.org/b/id/${card?.cover_i}-M.jpg`} alt="" className={styles.image} />
+                            ? <img src={`https://covers.openlibrary.org/b/id/${card?.cover_i}-M.jpg`} alt="" className={styles.image} />
                             :
                             <div className={styles.no_image}>
                                 <div className={styles.info}>
